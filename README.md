@@ -71,12 +71,6 @@
 
 - Coming soon!
 
-## Screenshots
-
-![Create table and data insertions](./Screenshot%20from%202023-03-27%2021-49-04.png)
-![Select queries](./Screenshot%20from%202023-03-27%2021-49-52.png)
-![Select queries](./Screenshot%20from%202023-03-27%2021-49-55.png)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->

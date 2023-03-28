@@ -1,10 +1,12 @@
 /*Queries that provide answers to the questions from all projects.*/
 
-SELECT * from animals WHERE NAME LIKE '%mon';
-SELECT NAME FROM animals WHERE DOB>'2016-01-01' AND DOB<'2019-12-31';
-SELECT NAME FROM animals WHERE NEUTERED=true AND ESCAPE_ATTEMPTS < 3;
-SELECT DOB FROM animals WHERE NAME='Augmon' OR NAME='Pikachu';
-SELECT NAME, ESCAPE_ATTEMPTS FROM animals WHERE WEIGHT_KG>10.5;
-SELECT * FROM animals WHERE NEUTERED=true;
-SELECT * FROM animals WHERE NAME!='Gabumon';
-
+SELECT COUNT(*) as total_number FROM animals;
+SELECT COUNT(*) as less_than_one_escapes FROM animals WHERE escape_attempts < 1;
+SELECT AVG(weight_kg) as avg_weight FROM animals;
+SELECT neutered, avg(escape_attempts) as escapes FROM animals GROUP BY neutered;
+SELECT MAX(weight_kg) as digimon_max_wght FROM animals WHERE SPECIES='digimon';
+SELECT MAX(weight_kg) as digimon_min_wght FROM animals WHERE SPECIES='pokemon';
+SELECT MIN(weight_kg) as pokemon_max_wght FROM animals WHERE SPECIES='digimon';
+SELECT MIN(weight_kg) as pokemon_min_wght FROM animals WHERE SPECIES='pokemon';
+SELECT AVG(escape_attempts) as digimon_avg_escapes FROM animals WHERE SPECIES='digimon' AND DOB BETWEEN '1990-01-01' AND '2000-01-01';
+SELECT AVG(escape_attempts) as pokemon_avg_escapes FROM animals WHERE SPECIES='pokemon' AND DOB BETWEEN '1990-01-01' AND '2000-01-01';
