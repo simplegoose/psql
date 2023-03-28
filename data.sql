@@ -1,5 +1,6 @@
 /* Populate database with sample data. */
 
-INSERT INTO animals (name) VALUES ('Luna');
-INSERT INTO animals (name) VALUES ('Daisy');
-INSERT INTO animals (name) VALUES ('Charlie');
+INSERT INTO animals(ID, NAME, DOB, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (01, 'Augmon', '2020-02-03', 0, true, 10.23);
+INSERT INTO animals(ID, NAME, DOB, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (02, 'Gabumon', '2018-11-15', 2, true, 8.0);
+INSERT INTO animals(ID, NAME, DOB, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (03, 'Pikachu', '2021-01-03', 1, false, 15.04);
+INSERT INTO animals(ID, NAME, DOB, ESCAPE_ATTEMPTS, NEUTERED, WEIGHT_KG) VALUES (04, 'Devimon', '2017-03-12', 5, true, 11.0);
