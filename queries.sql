@@ -2,40 +2,32 @@
 
 BEGIN;
 
-UPDATE animals SET SPECIES='unspecified';
-
-ROLLBACK;
-
-BEGIN;
-
-UPDATE animals SET SPECIES='digimon' WHERE name LIKE '%mon';
-UPDATE animals SET SPECIES='pokemon' WHERE species IS NULL;
-
-COMMIT;
-
-BEGIN;
-
-DELETE FROM animals;
-
-ROLLBACK;
-
-BEGIN;
-
-DELETE FROM animals WHERE dob > '2022-01-01';
-
-SAVEPOINT del_jan_2022;
-
-UPDATE animals SET weight_kg=weight_kg * -1;
-
-ROLLBACK TO del_jan_2022;
-
 UPDATE animals SET weight_kg=weight_kg * -1 WHERE sign(weight_kg) < 1;
 
 COMMIT;
 
-SELECT COUNT(*) as total_number FROM animals;
-SELECT COUNT(*) as less_than_one_escapes FROM animals WHERE escape_attempts < 1;
-SELECT AVG(weight_kg) as avg_weight FROM animals;
-SELECT neutered, avg(escape_attempts) as escapes FROM animals GROUP BY neutered;
-SELECT species, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
-SELECT species, AVG(escape_attempts) FROM animals WHERE dob >= '1990-01-01' AND dob <= '2000-12-31' GROUP BY species;
+SELECT full_name as owner_full_name, name as animal_name FROM OWNERS JOIN ANIMALS ON owners.id = animals.owner_id WHERE full_name='Melody Pond'; 
+
+SELECT specie_name, name as animal_name FROM SPECIES 
+  JOIN ANIMALS ON species.id = animals.species_id 
+  WHERE specie_name='pokemon';
+
+SELECT * FROM OWNERS 
+  LEFT JOIN ANIMALS ON owners.id = animals.owner_id;
+
+SELECT specie_name, COUNT(*) FROM SPECIES 
+  LEFT JOIN ANIMALS ON species.id = animals.species_id 
+  GROUP BY SPECIE_NAME;
+
+SELECT * FROM OWNERS 
+  JOIN ANIMALS ON owners.id = animals.owner_id 
+  JOIN SPECIES ON animals.species_id = species.id 
+  WHERE owners.full_name='Jennifer Orwell' AND species.specie_name = 'digimon';
+
+SELECT full_name as owner_full_name, name as animal_name FROM OWNERS 
+  JOIN ANIMALS ON owners.id = animals.owner_id 
+  WHERE full_name='Dean Winchester' AND animals.escape_attempts = 0; 
+
+SELECT full_name, COUNT(*) FROM OWNERS 
+  JOIN ANIMALS ON owners.id = animals.owner_id 
+  GROUP BY FULL_NAME;
