@@ -28,6 +28,7 @@ SELECT full_name as owner_full_name, name as animal_name FROM OWNERS
   JOIN ANIMALS ON owners.id = animals.owner_id 
   WHERE full_name='Dean Winchester' AND animals.escape_attempts = 0; 
 
-SELECT full_name, COUNT(*) FROM OWNERS 
+SELECT full_name, COUNT(*) as total_animals FROM OWNERS 
   JOIN ANIMALS ON owners.id = animals.owner_id 
-  GROUP BY FULL_NAME;
+  GROUP BY FULL_NAME
+  ORDER BY total_animals DESC;
