@@ -37,7 +37,8 @@ SELECT vets.name, visits.date_visited FROM VETS
   JOIN VISITS ON visits.vet_id = vets.id
   JOIN ANIMALS ON visits.animal_id = animals.id
   WHERE vets.name = 'William Tatcher'
-  ORDER BY visits.date_visited DESC;
+  ORDER BY visits.date_visited DESC
+  LIMIT 1;
 
 SELECT vets.name as vet_name, species.specie_name, COUNT(animals.species_id) as species_count FROM VETS
   JOIN VISITS ON visits.vet_id = vets.id
@@ -65,7 +66,8 @@ SELECT animals.name as animal_name, vets.name as vet_name, visits.date_visited F
   JOIN VISITS ON visits.vet_id = vets.id
   JOIN ANIMALS ON visits.animal_id = animals.id
   WHERE vets.name = 'Maisy Smith'
-  ORDER BY visits.date_visited DESC;
+  ORDER BY visits.date_visited DESC
+  LIMIT 1;
 
 SELECT * FROM VISITS
   JOIN VETS ON visits.vet_id = vets.id
