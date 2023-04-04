@@ -16,6 +16,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+  - [Schema Diagram](#schema-diagram)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -104,6 +105,15 @@ Example command:
   psql -u username
 ```
 -
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Schema Diagram -->
+
+## Schema Diagram <a name="schema-diagram"></a>
+
+![Schema Diagram](./schema.png)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
